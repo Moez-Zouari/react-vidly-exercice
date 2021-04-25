@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
-import Like from "./common/like";
+
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
@@ -22,11 +22,13 @@ class Movies extends Component {
     this.setState({ movies: getMovies(), genres });
   }
 
+  // Pour supprimer un film
   handleDelete = (movie) => {
     const movies = this.state.movies.filter((m) => m._id !== movie._id);
     this.setState({ movies });
   };
 
+  // Pour assuer le j'aime du film
   handleLike = (movie) => {
     // Cloner tous les movies
     const movies = [...this.state.movies];
@@ -40,22 +42,18 @@ class Movies extends Component {
     this.setState({ movies });
   };
 
+  // Pour recupérer le changement de la page
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
 
+  // Pour recupérer le genre selectionner dans la barre de choix
   handleGenreSelect = (genre) => {
     this.setState({ selectedGenre: genre, currentPage: 1 });
   };
 
-  handleSort = (path) => {
-    const sortColumn = { ...this.state.sortColumn };
-    if (sortColumn.path === path)
-      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
-    else {
-      sortColumn.path = path;
-      sortColumn.order = "asc";
-    }
+  // Methode pour faire le tri
+  handleSort = (sortColumn) => {
     this.setState({ sortColumn });
   };
 
@@ -94,6 +92,7 @@ class Movies extends Component {
           <p>Showing {filtered.length} Movies in the database</p>
           <MoviesTable
             movies={movies}
+            sortColumn={sortColumn}
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onSort={this.handleSort}

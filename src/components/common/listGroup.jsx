@@ -25,6 +25,7 @@ const ListGroup = (props) => {
   );
 };
 
+// Default props pour rendre plus facile et dynamique
 ListGroup.defaultProps = {
   textProprety: "name",
   valueProprety: "_id",
