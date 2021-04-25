@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 //Convention because lodash is the optimized version of a popular JS library called underscore
 import _ from "lodash";
 
-const Pagination = (props) => {
-  const { itemsCount, pageSize, onPageChange, currentPage } = props;
+const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
   console.log(currentPage);
   const pagesCount = Math.ceil(itemsCount / pageSize);
 
