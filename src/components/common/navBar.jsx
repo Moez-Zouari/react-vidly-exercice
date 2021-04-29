@@ -21,23 +21,20 @@ class NavBar extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/movies">
-                  Movies
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/customers">
-                  Customers
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/rentals">
-                  Rental
-                </NavLink>
-              </li>
-            </ul>
+            <div className="navbar-nav">
+              <NavLink className="nav-link nav-item" to="/movies">
+                Movies
+              </NavLink>
+              <NavLink className="nav-link nav-item" to="/customers">
+                Customers
+              </NavLink>
+              <NavLink className="nav-link nav-item" to="/rentals">
+                Rental
+              </NavLink>
+              <NavLink className="nav-link nav-item" to="/login">
+                Login
+              </NavLink>
+            </div>
           </div>
         </div>
       </nav>
