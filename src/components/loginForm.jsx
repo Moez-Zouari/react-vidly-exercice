@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 
 class LoginForm extends Component {
+  username = React.createRef();
+
+  // componentDidMount() {
+  //   this.username.current.focus();
+  // }
+
   handleSumbit = (e) => {
     e.preventDefault();
 
     //Call the server
-    console.log("submitted");
+    const username = this.username.current.value;
+    console.log("Submitted");
   };
 
   render() {
@@ -15,7 +22,13 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSumbit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input id="username" type="text" className="form-control" />
+            <input
+              autoFocus
+              ref={this.username}
+              id="username"
+              type="text"
+              className="form-control"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="password"></label>Password
