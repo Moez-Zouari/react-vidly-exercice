@@ -18,4 +18,3 @@ const Input = ({ name, label, value, onChange }) => {
 };
 
 export default Input;
-props;
