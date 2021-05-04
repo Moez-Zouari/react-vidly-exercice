@@ -16,6 +16,7 @@ class Movies extends Component {
     currentPage: 1,
     pageSize: 4,
     genres: [],
+    searchQuery: "",
     selectedGenre: null,
     sortColumn: { path: "title", order: "asc" },
   };
@@ -47,7 +48,7 @@ class Movies extends Component {
 
   /*Recupérer le genre selectionner dans la barre de choix */
   handleGenreSelect = (genre) => {
-    this.setState({ selectedGenre: genre, currentPage: 1 });
+    this.setState({ selectedGenre: genre, searchQuery: "", currentPage: 1 });
   };
 
   /* Tri Croissant et Décroissant */
