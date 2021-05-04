@@ -5,6 +5,7 @@ import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
 import { getGenres } from "../services/fakeGenreService";
+import { Link } from "react-router-dom";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
 
@@ -14,6 +15,7 @@ class Movies extends Component {
     currentPage: 1,
     pageSize: 4,
     genres: [],
+    selectedGenre: null,
     sortColumn: { path: "title", order: "asc" },
   };
 
@@ -96,6 +98,13 @@ class Movies extends Component {
         </div>
 
         <div className="col">
+          <Link
+            className="btn btn-primary"
+            to="/movies/new"
+            style={{ marginBottom: 20 }}
+          >
+            New Movie
+          </Link>
           <p>Showing {totalCount} Movies in the database</p>
           <MoviesTable
             movies={movies}

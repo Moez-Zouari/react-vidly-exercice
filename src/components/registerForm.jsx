@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 
@@ -18,9 +18,7 @@ class RegisterForm extends Form {
     //Call the server
     console.log("Submitted");
   };
-  render() {
-    return <h1>hELLO rGISTER</h1>;
-  }
+
   render() {
     return (
       <div>
