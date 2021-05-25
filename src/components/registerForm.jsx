@@ -18,6 +18,7 @@ class RegisterForm extends Form {
   doSubmit = async () => {
     try {
       await userService.register(this.state.data);
+      this.props.history.push("/users");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
